@@ -2,15 +2,15 @@
 USER=brooswit
 FREQUENCY=60
 
-pushd .
-mkdir repositories
-cd repositories
+pushd . > /dev/null
+mkdir repositories > /dev/null
+cd repositories > /dev/null
 curl -s https://api.github.com/users/$USER/repos?per_page=200 | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
 
 for D in `find . -type d`
 do
-    pushd .
-    cd $D
+    pushd . > /dev/null
+    cd $D > /dev/null
     UPSTREAM=${1:-'@{u}'}
     LOCAL=$(git rev-parse @)
     REMOTE=$(git rev-parse "$UPSTREAM")
@@ -27,9 +27,9 @@ do
     else
         echo "Diverged"
     fi
-    popd
+    popd > /dev/null
 done
-popd
+popd > /dev/null
 
 sleep $FREQUENCY
 git pull
