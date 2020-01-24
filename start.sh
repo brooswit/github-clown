@@ -17,15 +17,15 @@ do
     BASE=$(git merge-base @ "$UPSTREAM")
 
     if [ $LOCAL = $REMOTE ]; then
-        echo "Up-to-date"
+        echo "$(pwd) Up-to-date"
     elif [ $LOCAL = $BASE ]; then
-        echo "Need to pull"
+        echo "$(pwd) Need to pull"
         git pull
         bash clown.sh
     elif [ $REMOTE = $BASE ]; then
-        echo "Need to push"
+        echo "$(pwd) Need to push"
     else
-        echo "Diverged"
+        echo "$(pwd) Diverged"
     fi
     popd > /dev/null
 done
