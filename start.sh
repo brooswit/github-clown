@@ -4,7 +4,7 @@ FREQUENCY=60
 
 while true
 do
-    pushd
+    pushd .
     mkdir repositories
     cd repositories
     curl -s https://api.github.com/users/$USER/repos?per_page=200 | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
