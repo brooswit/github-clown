@@ -7,7 +7,7 @@ mkdir repositories > /dev/null
 cd repositories > /dev/null
 curl -s https://api.github.com/users/$USER/repos?per_page=200 | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
 
-for D in `find . -type d`
+for D in */
 do
     pushd . > /dev/null
     cd $D > /dev/null
