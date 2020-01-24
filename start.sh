@@ -11,7 +11,7 @@ do
 
     for D in `find . -type d`
     do
-        pushd
+        pushd .
         cd $d
         bash clown.sh
         popd
