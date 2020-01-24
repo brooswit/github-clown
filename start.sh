@@ -1,7 +1,8 @@
-USER = put_your_username_here
-FREQUENCY = 60
+#!/bin/bash
+USER=put_your_username_here
+FREQUENCY=60
 
-while 1
+while true
 do
     pushd
     mkdir repositories
