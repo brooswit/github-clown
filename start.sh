@@ -10,7 +10,7 @@ curl -s https://api.github.com/users/$USER/repos?per_page=200 | grep \"clone_url
 for D in `find . -type d`
 do
     pushd .
-    cd $d
+    cd $D
     UPSTREAM=${1:-'@{u}'}
     LOCAL=$(git rev-parse @)
     REMOTE=$(git rev-parse "$UPSTREAM")
