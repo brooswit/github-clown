@@ -1,5 +1,5 @@
 #!/bin/bash
-USER=put_your_username_here
+USER=brooswit
 FREQUENCY=60
 
 while true
